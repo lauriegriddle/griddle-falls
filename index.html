@@ -93,14 +93,15 @@
 
     .title {
       font-size: 32px;
-      color: #d4a574;
+      color: #FFFDF5;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
       margin-bottom: 5px;
     }
 
     .subtitle {
       font-size: 14px;
-      color: #a89080;
+      color: #FFFDF5;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
       font-style: italic;
     }
 
@@ -1480,7 +1481,7 @@
 
   <!-- Main game -->
   <div class="container">
-    <a href="#" onclick="document.getElementById('startOverlay').style.display='flex'; return false;" style="color: #8B5A2B; text-decoration: none; font-size: 14px; margin-bottom: 10px; display: inline-block;">← How to Play</a>
+    <a href="#" onclick="document.getElementById('startOverlay').style.display='flex'; event.preventDefault();" style="color: #FFFDF5; text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; background: rgba(255,255,255,0.8); border-radius: 20px; display: inline-block; margin-bottom: 10px;">← How to Play</a>
     <header class="header">
       <svg class="logo"><use href="#logo-griddle-falls"/></svg>
       <h1 class="title">Griddle Falls</h1>
