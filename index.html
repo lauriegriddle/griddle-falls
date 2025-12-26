@@ -1480,7 +1480,7 @@
   </div>
 
   <!-- Main game -->
-<a href="javascript:document.getElementById('startOverlay').style.display='flex';" style="position: fixed; top: 10px; left: 10px; color: #FFFDF5; background: rgba(139,90,43,0.9); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; z-index: 100;">← How to Play</a>
+<button type="button" onclick="showInstructions();" style="position: fixed; top: 10px; left: 10px; color: #FFFDF5; background: rgba(139,90,43,0.9); border: none; cursor: pointer; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; z-index: 100;">← How to Play</button>
 <div class="container">
     <header class="header">
       <svg class="logo"><use href="#logo-griddle-falls"/></svg>
@@ -1579,6 +1579,7 @@
   </div>
 
   <script>
+    function showInstructions() { document.getElementById('startOverlay').style.display = 'flex'; }
     // Puzzle data - 31 CATEGORIES
     const puzzles = [
       {
