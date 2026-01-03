@@ -10,15 +10,17 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Georgia', serif;
       background: linear-gradient(180deg, #C2632A 0%, #D4833A 25%, #E8A866 50%, #F5DEB3 80%, #FFFDF5 100%);
       min-height: 100vh;
       color: #5D4E37;
       overflow-x: hidden;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      overscroll-behavior: none;
+      -webkit-overflow-scrolling: touch;
     }
-
     /* Rain effect */
     .rain {
       position: fixed;
@@ -30,7 +32,6 @@
       z-index: 0;
       opacity: 0.3;
     }
-
     .rain-drop {
       position: absolute;
       width: 2px;
@@ -38,12 +39,10 @@
       background: linear-gradient(transparent, rgba(255,255,255,0.3));
       animation: rain-fall linear infinite;
     }
-
     @keyframes rain-fall {
       0% { transform: translateY(-100px); }
       100% { transform: translateY(100vh); }
     }
-
     /* Window glow effect */
     .window-glow {
       position: fixed;
@@ -55,7 +54,6 @@
       border-radius: 4px;
       z-index: 0;
     }
-
     .window-glow::before {
       content: '';
       position: absolute;
@@ -66,7 +64,6 @@
       border: 2px solid rgba(255, 183, 77, 0.2);
       border-radius: 2px;
     }
-
     /* Main container */
     .container {
       position: relative;
@@ -77,34 +74,33 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      overscroll-behavior: none;
+      -webkit-overflow-scrolling: touch;
     }
-
     /* Header */
     .header {
       text-align: center;
       margin-bottom: 20px;
     }
-
     .logo {
       width: 70px;
       height: 70px;
       margin: 0 auto 10px;
     }
-
     .title {
       font-size: 32px;
       color: #FFFDF5;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
       margin-bottom: 5px;
     }
-
     .subtitle {
       font-size: 14px;
       color: #FFFDF5;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
       font-style: italic;
     }
-
     /* Timer and progress */
     .status-bar {
       display: flex;
@@ -116,13 +112,11 @@
       margin-bottom: 20px;
       border: 1px solid rgba(212, 165, 116, 0.2);
     }
-
     .timer-section {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
-
     .cafe-time {
       font-size: 11px;
       color: #7a6a5a;
@@ -131,24 +125,20 @@
       gap: 4px;
       margin-bottom: 2px;
     }
-
     .timer {
       font-size: 24px;
       color: #ffb74d;
       font-family: 'Courier New', monospace;
     }
-
     .progress {
       font-size: 16px;
       color: #a89080;
     }
-
     .progress-dots {
       display: flex;
       gap: 8px;
       margin-top: 4px;
     }
-
     .dot {
       width: 10px;
       height: 10px;
@@ -156,17 +146,14 @@
       background: rgba(212, 165, 116, 0.3);
       transition: all 0.3s ease;
     }
-
     .dot.completed {
       background: #4caf50;
       box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
     }
-
     .dot.current {
       background: #ffb74d;
       box-shadow: 0 0 8px rgba(255, 183, 77, 0.5);
     }
-
     /* Hint card */
     .hint-card {
       background: linear-gradient(135deg, #f5e6d3 0%, #ede0d0 100%);
@@ -176,14 +163,12 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       color: #3d2e1f;
     }
-
     .hint-header {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 12px;
     }
-
     .laurel-avatar {
       width: 44px;
       height: 44px;
@@ -192,7 +177,6 @@
       background: #d4a574;
       flex-shrink: 0;
     }
-
     .laurel-name {
       font-weight: bold;
       color: #8b5a2b;
@@ -200,7 +184,6 @@
       align-items: center;
       gap: 8px;
     }
-
     .speak-btn {
       background: none;
       border: none;
@@ -208,28 +191,28 @@
       font-size: 18px;
       opacity: 0.7;
       transition: opacity 0.2s;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .speak-btn:hover {
       opacity: 1;
     }
-
     .speak-btn.speaking {
       animation: pulse 1s infinite;
     }
-
     @keyframes pulse {
       0%, 100% { opacity: 0.7; }
       50% { opacity: 1; }
     }
-
     .hint-text {
       font-size: 18px;
       line-height: 1.5;
       font-style: italic;
       color: #5d4e3c;
     }
-
     .category-badge {
       display: inline-block;
       background: #d4a574;
@@ -239,7 +222,6 @@
       font-size: 12px;
       margin-top: 12px;
     }
-
     /* Game area */
     .game-area {
       flex: 1;
@@ -249,8 +231,10 @@
       border: 1px solid rgba(212, 165, 116, 0.2);
       overflow: hidden;
       min-height: 350px;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      overscroll-behavior: none;
     }
-
     /* Falling zone */
     .falling-zone {
       min-height: 180px;
@@ -258,7 +242,6 @@
       border-bottom: 2px dashed rgba(212, 165, 116, 0.3);
       padding: 15px;
     }
-
     .letters-grid {
       display: flex;
       flex-wrap: wrap;
@@ -267,7 +250,6 @@
       align-items: flex-start;
       padding: 10px;
     }
-
     .falling-letter {
       width: 44px;
       height: 44px;
@@ -282,23 +264,23 @@
       cursor: pointer;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
       transition: transform 0.1s ease, opacity 0.2s ease;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
       user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .falling-letter:hover {
       transform: scale(1.1);
     }
-
     .falling-letter:active {
       transform: scale(0.95);
     }
-
     .falling-letter.grabbed {
       opacity: 0.3;
       pointer-events: none;
       transform: scale(0.9);
     }
-
     /* Shuffle button */
     .shuffle-btn {
       display: flex;
@@ -314,22 +296,23 @@
       font-size: 14px;
       cursor: pointer;
       transition: all 0.2s ease;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .shuffle-btn:hover {
       background: rgba(212, 165, 116, 0.3);
       border-color: rgba(212, 165, 116, 0.6);
     }
-
     .shuffle-btn:active {
       transform: scale(0.95);
     }
-
     /* Answer area */
     .answer-area {
       padding: 20px;
     }
-
     .answer-label {
       font-size: 12px;
       color: #a89080;
@@ -341,7 +324,6 @@
       justify-content: center;
       gap: 10px;
     }
-
     .keyboard-hint {
       font-size: 11px;
       color: #7a6a5a;
@@ -349,14 +331,12 @@
       text-transform: none;
       letter-spacing: 0;
     }
-
     .answer-slots {
       display: flex;
       justify-content: center;
       gap: 8px;
       margin-bottom: 20px;
     }
-
     .answer-slot {
       width: 44px;
       height: 44px;
@@ -371,41 +351,39 @@
       color: #f5e6d3;
       cursor: pointer;
       transition: all 0.2s ease;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .answer-slot:hover {
       border-color: rgba(212, 165, 116, 0.8);
       background: rgba(212, 165, 116, 0.2);
     }
-
     .answer-slot.filled {
       background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
       border: none;
       color: #3d2e1f;
     }
-
     .answer-slot.correct {
       background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
       border: none;
     }
-
     .answer-slot.wrong-position {
       background: linear-gradient(135deg, #ffd54f 0%, #ffca28 100%);
       border: none;
     }
-
     .answer-slot.wrong {
       background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
       border: none;
       animation: shake 0.3s ease;
     }
-
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       25% { transform: translateX(-5px); }
       75% { transform: translateX(5px); }
     }
-
     /* Discard area */
     .discard-area {
       background: rgba(0,0,0,0.2);
@@ -413,7 +391,6 @@
       padding: 15px;
       min-height: 60px;
     }
-
     .discard-label {
       font-size: 11px;
       color: #7a6a5a;
@@ -421,13 +398,11 @@
       letter-spacing: 1px;
       margin-bottom: 8px;
     }
-
     .discarded-letters {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
-
     .discarded-letter {
       width: 32px;
       height: 32px;
@@ -440,12 +415,15 @@
       color: #7a6a5a;
       text-decoration: line-through;
       cursor: pointer;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .discarded-letter:hover {
       background: rgba(100, 80, 60, 0.7);
     }
-
     /* Check button */
     .check-btn {
       display: block;
@@ -461,24 +439,25 @@
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .check-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
     }
-
     .check-btn:active {
       transform: translateY(0);
     }
-
     .check-btn:disabled {
       background: #5a4a3a;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
     }
-
     /* NPC reactions */
     .npc-reaction {
       position: fixed;
@@ -497,12 +476,10 @@
       align-items: flex-start;
       gap: 12px;
     }
-
     .npc-reaction.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     .npc-avatar {
       width: 40px;
       height: 40px;
@@ -510,20 +487,17 @@
       flex-shrink: 0;
       overflow: hidden;
     }
-
     .npc-content .name {
       font-weight: bold;
       color: #d4a574;
       font-size: 13px;
     }
-
     .npc-content .message {
       color: #c0b0a0;
       font-size: 14px;
       font-style: italic;
       margin-top: 4px;
     }
-
     /* Victory screen */
     .victory-overlay {
       position: fixed;
@@ -541,13 +515,14 @@
       transition: opacity 0.5s ease;
       overflow-y: auto;
       padding: 20px;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      overscroll-behavior: none;
     }
-
     .victory-overlay.visible {
       opacity: 1;
       pointer-events: auto;
     }
-
     .victory-card {
       background: linear-gradient(135deg, #f5e6d3 0%, #ede0d0 100%);
       border-radius: 20px;
@@ -559,36 +534,30 @@
       transform: scale(0.8);
       transition: transform 0.5s ease;
     }
-
     .victory-overlay.visible .victory-card {
       transform: scale(1);
     }
-
     .victory-emoji {
       font-size: 50px;
       margin-bottom: 15px;
     }
-
     .victory-title {
       font-size: 26px;
       color: #8b5a2b;
       margin-bottom: 8px;
     }
-
     .victory-time {
       font-size: 32px;
       color: #d4a574;
       font-family: 'Courier New', monospace;
       margin-bottom: 15px;
     }
-
     .victory-message {
       color: #5d4e3c;
       font-style: italic;
       margin-bottom: 20px;
       font-size: 15px;
     }
-
     .victory-buttons {
       display: flex;
       gap: 10px;
@@ -596,7 +565,6 @@
       flex-wrap: wrap;
       margin-bottom: 25px;
     }
-
     .play-again-btn, .share-btn {
       background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
       border: none;
@@ -607,16 +575,18 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.2s ease;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .share-btn {
       background: linear-gradient(135deg, #5d8a5d 0%, #4a7a4a 100%);
     }
-
     .play-again-btn:hover, .share-btn:hover {
       transform: scale(1.05);
     }
-
     .share-toast {
       position: fixed;
       bottom: 80px;
@@ -631,18 +601,15 @@
       transition: opacity 0.3s;
       z-index: 300;
     }
-
     .share-toast.visible {
       opacity: 1;
     }
-
     /* Sister games section */
     .sister-games {
       border-top: 1px solid rgba(139, 90, 43, 0.3);
       padding-top: 20px;
       margin-top: 5px;
     }
-
     .sister-games-title {
       font-size: 12px;
       color: #8b5a2b;
@@ -650,13 +617,11 @@
       letter-spacing: 1px;
       margin-bottom: 12px;
     }
-
     .sister-games-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
     }
-
     .sister-game-link {
       display: flex;
       align-items: center;
@@ -668,21 +633,22 @@
       color: #5d4e3c;
       font-size: 12px;
       transition: all 0.2s;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .sister-game-link:hover {
       background: rgba(212, 165, 116, 0.3);
     }
-
     .sister-game-link .emoji {
       font-size: 18px;
     }
-
     .sister-game-link .name {
       font-weight: bold;
       line-height: 1.2;
     }
-
     /* Start screen */
     .start-overlay {
       position: fixed;
@@ -698,13 +664,14 @@
       transition: opacity 0.5s ease;
       overflow-y: auto;
       padding: 20px;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      overscroll-behavior: none;
     }
-
     .start-overlay.hidden {
       opacity: 0;
       pointer-events: none;
     }
-
     .start-card {
       background: linear-gradient(135deg, #f5e6d3 0%, #ede0d0 100%);
       border-radius: 20px;
@@ -713,31 +680,26 @@
       color: #3d2e1f;
       max-width: 400px;
     }
-
     .start-logo {
       width: 80px;
       height: 80px;
       margin: 0 auto 15px;
     }
-
     .start-title {
       font-size: 36px;
       color: #8b5a2b;
       margin-bottom: 5px;
     }
-
     .start-subtitle {
       color: #a89080;
       font-style: italic;
       margin-bottom: 30px;
     }
-
     .start-description {
       color: #5d4e3c;
       margin-bottom: 30px;
       line-height: 1.6;
     }
-
     .start-btn {
       background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
       border: none;
@@ -749,13 +711,16 @@
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .start-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 25px rgba(212, 165, 116, 0.4);
     }
-
     /* Instructions modal */
     .how-to-play {
       background: rgba(255, 248, 235, 0.98);
@@ -765,31 +730,26 @@
       text-align: left;
       border: 1px solid rgba(212, 165, 116, 0.2);
     }
-
     .how-to-play h3 {
       color: #8B5A2B;
       margin-bottom: 15px;
       font-size: 16px;
     }
-
     .how-to-play ul {
       list-style: none;
       color: #5D4E37;
       font-size: 14px;
     }
-
     .how-to-play li {
       margin-bottom: 10px;
       padding-left: 25px;
       position: relative;
     }
-
     .how-to-play li::before {
       content: '☕';
       position: absolute;
       left: 0;
     }
-
     /* Voice toggle */
     .voice-toggle {
       display: flex;
@@ -800,12 +760,10 @@
       padding-top: 15px;
       border-top: 1px solid rgba(212, 165, 116, 0.2);
     }
-
     .voice-toggle label {
       color: #5D4E37;
       font-size: 14px;
     }
-
     .toggle-switch {
       position: relative;
       width: 50px;
@@ -814,12 +772,15 @@
       border-radius: 13px;
       cursor: pointer;
       transition: background 0.3s;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .toggle-switch.active {
       background: #d4a574;
     }
-
     .toggle-switch::after {
       content: '';
       position: absolute;
@@ -831,11 +792,9 @@
       border-radius: 50%;
       transition: left 0.3s;
     }
-
     .toggle-switch.active::after {
       left: 27px;
     }
-
     /* Jukebox button */
     .jukebox-btn {
       position: fixed;
@@ -855,26 +814,26 @@
       z-index: 50;
       transition: all 0.2s ease;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .jukebox-btn:hover {
       background: rgba(212, 165, 116, 1);
       transform: scale(1.05);
     }
-
     .jukebox-btn .btn-icon {
       font-size: 18px;
     }
-
     .jukebox-btn.playing {
       animation: jukebox-glow 2s ease-in-out infinite;
     }
-
     @keyframes jukebox-glow {
       0%, 100% { box-shadow: 0 0 5px rgba(212, 165, 116, 0.3); }
       50% { box-shadow: 0 0 15px rgba(212, 165, 116, 0.6); }
     }
-
     /* Jukebox modal */
     .jukebox-modal {
       position: fixed;
@@ -890,13 +849,14 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      overscroll-behavior: none;
     }
-
     .jukebox-modal.visible {
       opacity: 1;
       pointer-events: auto;
     }
-
     .jukebox-card {
       background: linear-gradient(135deg, #f5e6d3 0%, #ede0d0 100%);
       border-radius: 16px;
@@ -906,7 +866,6 @@
       color: #3d2e1f;
       position: relative;
     }
-
     .jukebox-close {
       position: absolute;
       top: 15px;
@@ -917,25 +876,26 @@
       cursor: pointer;
       color: #8b5a2b;
       line-height: 1;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .jukebox-close:hover {
       color: #3d2e1f;
     }
-
     .jukebox-icon {
       text-align: center;
       font-size: 36px;
       margin-bottom: 10px;
     }
-
     .jukebox-title {
       text-align: center;
       font-size: 22px;
       color: #8b5a2b;
       margin-bottom: 20px;
     }
-
     .now-playing {
       background: rgba(45, 36, 28, 0.9);
       border-radius: 10px;
@@ -943,7 +903,6 @@
       text-align: center;
       margin-bottom: 15px;
     }
-
     .now-playing-label {
       font-size: 11px;
       color: #a89080;
@@ -951,13 +910,11 @@
       letter-spacing: 1px;
       margin-bottom: 5px;
     }
-
     .now-playing-track {
       font-size: 16px;
       color: #f5e6d3;
       font-weight: bold;
     }
-
     .jukebox-controls {
       display: flex;
       align-items: center;
@@ -965,7 +922,6 @@
       gap: 15px;
       margin-bottom: 20px;
     }
-
     .control-btn {
       width: 50px;
       height: 50px;
@@ -979,12 +935,15 @@
       cursor: pointer;
       transition: all 0.2s ease;
       color: white;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .control-btn:hover {
       transform: scale(1.1);
     }
-
     .control-btn.small {
       width: 40px;
       height: 40px;
@@ -992,18 +951,15 @@
       background: rgba(212, 165, 116, 0.3);
       color: #8b5a2b;
     }
-
     .volume-control {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 20px;
     }
-
     .volume-control span {
       font-size: 16px;
     }
-
     .volume-slider {
       flex: 1;
       height: 6px;
@@ -1012,8 +968,9 @@
       background: rgba(212, 165, 116, 0.3);
       border-radius: 3px;
       outline: none;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
     }
-
     .volume-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -1023,7 +980,6 @@
       border-radius: 50%;
       cursor: pointer;
     }
-
     .volume-slider::-moz-range-thumb {
       width: 18px;
       height: 18px;
@@ -1032,7 +988,6 @@
       cursor: pointer;
       border: none;
     }
-
     .playlist-label {
       font-size: 12px;
       color: #8b5a2b;
@@ -1040,13 +995,11 @@
       letter-spacing: 1px;
       margin-bottom: 10px;
     }
-
     .playlist {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-
     .playlist-track {
       display: flex;
       align-items: center;
@@ -1056,39 +1009,36 @@
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .playlist-track:hover {
       background: rgba(212, 165, 116, 0.3);
     }
-
     .playlist-track.active {
       background: rgba(45, 36, 28, 0.9);
       color: #f5e6d3;
     }
-
     .playlist-track .track-icon {
       font-size: 16px;
     }
-
     .playlist-track .track-name {
       flex: 1;
       font-size: 14px;
     }
-
     .playlist-track.active .track-name {
       color: #ffb74d;
     }
-
     .playlist-track .track-status {
       font-size: 12px;
       color: #a89080;
     }
-
     .playlist-track.active .track-status {
       color: #4caf50;
     }
-
     /* Footer */
     .footer {
       background: rgba(26, 20, 16, 0.9);
@@ -1097,7 +1047,6 @@
       text-align: center;
       margin-top: 30px;
     }
-
     .footer-links {
       display: flex;
       justify-content: center;
@@ -1105,18 +1054,18 @@
       margin-bottom: 15px;
       flex-wrap: wrap;
     }
-
     .footer-links a {
       color: #a89080;
       text-decoration: none;
       font-size: 13px;
       transition: color 0.2s;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .footer-links a:hover {
       color: #d4a574;
     }
-
     .footer-social {
       display: flex;
       justify-content: center;
@@ -1124,7 +1073,6 @@
       gap: 8px;
       margin-bottom: 15px;
     }
-
     .footer-social a {
       color: #a89080;
       text-decoration: none;
@@ -1136,38 +1084,45 @@
       padding: 8px 12px;
       border-radius: 20px;
       background: rgba(212, 165, 116, 0.1);
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .footer-social a:hover {
       color: #d4a574;
       background: rgba(212, 165, 116, 0.25);
       text-decoration: underline;
     }
-
     .instagram-icon {
       width: 18px;
       height: 18px;
       fill: currentColor;
     }
-
     .footer-contact {
       margin-bottom: 12px;
     }
-
     .footer-contact a {
       color: #a89080;
       text-decoration: none;
       font-size: 13px;
       transition: color 0.2s;
+      /* Mobile touch optimization */
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
-
     .footer-contact a:hover {
       color: #d4a574;
     }
-
     .footer-copyright {
       color: #7a6a5a;
       font-size: 12px;
+    }
+    /* Navigation links - Mobile touch optimization */
+    .nav-link {
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
@@ -1178,7 +1133,6 @@
   
   <!-- Window glow -->
   <div class="window-glow"></div>
-
   <!-- SVG Definitions for avatars -->
   <svg style="display: none;">
     <!-- Griddle Falls Logo - Coffee cup only -->
@@ -1195,7 +1149,6 @@
       <!-- Handle -->
       <path d="M75 47 Q92 47 92 60 Q92 73 75 73" stroke="#d4a574" stroke-width="6" fill="none"/>
     </symbol>
-
     <!-- Laurel - Cafe owner with long straight thick hair -->
     <symbol id="avatar-laurel" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#d4a574"/>
@@ -1217,7 +1170,6 @@
       <path d="M35 75 L35 95 L65 95 L65 75" fill="#f5e6d3"/>
       <rect x="45" y="78" width="10" height="8" fill="#d4a574" rx="2"/>
     </symbol>
-
     <!-- Sarah - Caring older sister type -->
     <symbol id="avatar-sarah" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#b8956a"/>
@@ -1235,7 +1187,6 @@
       <circle cx="58" cy="38" r="8" stroke="#d4a574" stroke-width="2" fill="none"/>
       <line x1="50" y1="38" x2="50" y2="38" stroke="#d4a574" stroke-width="2"/>
     </symbol>
-
     <!-- Taylor B - TV enthusiast -->
     <symbol id="avatar-taylor" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#a89080"/>
@@ -1252,7 +1203,6 @@
       <!-- Big smile -->
       <path d="M38 48 Q50 60 62 48" stroke="#3d2e1f" stroke-width="2" fill="none"/>
     </symbol>
-
     <!-- Mr. Lindsay - Friendly dog groomer -->
     <symbol id="avatar-mr-lindsay" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#c9b896"/>
@@ -1269,7 +1219,6 @@
       <!-- Smile -->
       <path d="M42 55 Q50 60 58 55" stroke="#3d2e1f" stroke-width="2" fill="none"/>
     </symbol>
-
     <!-- Mrs. Lindsay - Friendly dog groomer -->
     <symbol id="avatar-mrs-lindsay" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#d4b896"/>
@@ -1291,7 +1240,6 @@
       <!-- Smile -->
       <path d="M42 50 Q50 58 58 50" stroke="#3d2e1f" stroke-width="2" fill="none"/>
     </symbol>
-
     <!-- Jennie with Isaac (chihuahua) -->
     <symbol id="avatar-jennie" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#e8d4b8"/>
@@ -1316,7 +1264,6 @@
       <!-- Chihuahua nose -->
       <circle cx="78" cy="34" r="2" fill="#3d2e1f"/>
     </symbol>
-
     <!-- Josephine - Cat-loving mom -->
     <symbol id="avatar-josephine" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#d4c4b0"/>
@@ -1335,7 +1282,6 @@
       <!-- Gentle smile -->
       <path d="M44 52 Q50 56 56 52" stroke="#3d2e1f" stroke-width="2" fill="none"/>
     </symbol>
-
     <!-- Josie - Cat-loving daughter -->
     <symbol id="avatar-josie" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#f0e6d3"/>
@@ -1354,7 +1300,6 @@
       <!-- Smile -->
       <path d="M42 50 Q50 58 58 50" stroke="#3d2e1f" stroke-width="2" fill="none"/>
     </symbol>
-
     <!-- The whole cafe - group icon -->
     <symbol id="avatar-cafe" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#2d241c"/>
@@ -1371,15 +1316,12 @@
       <rect x="65" y="75" width="15" height="10" fill="#d4a574" rx="2"/>
     </symbol>
   </svg>
-
   <!-- Share toast -->
   <div class="share-toast" id="shareToast">Copied to clipboard!</div>
-
   <!-- Jukebox button -->
   <button class="jukebox-btn" id="jukeboxBtn" onclick="toggleJukebox()" title="Jukebox">
     <span class="btn-icon">🎵</span> Jukebox
   </button>
-
   <!-- Jukebox modal -->
   <div class="jukebox-modal" id="jukeboxModal">
     <div class="jukebox-card">
@@ -1410,7 +1352,6 @@
       </div>
     </div>
   </div>
-
   <!-- Start screen -->
   <div class="start-overlay" id="startOverlay">
     <div class="start-card">
@@ -1441,7 +1382,6 @@
       </div>
     </div>
   </div>
-
   <!-- Victory screen -->
   <div class="victory-overlay" id="victoryOverlay">
     <div class="victory-card">
@@ -1478,17 +1418,15 @@
       </div>
     </div>
   </div>
-
   <!-- Main game -->
-<a href="https://lettergriddle.com" style="position: fixed; top: 10px; left: 10px; color: #FFFDF5; background: rgba(139,90,43,0.9); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; z-index: 100; display: flex; align-items: center; gap: 6px;">🥞 Letter Griddle Games</a>
-<a href="index.html" style="position: fixed; top: 10px; left: 200px; color: #FFFDF5; background: rgba(139,90,43,0.9); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; z-index: 100;">❓ How to Play</a>
+<a href="https://lettergriddle.com" class="nav-link" style="position: fixed; top: 10px; left: 10px; color: #FFFDF5; background: rgba(139,90,43,0.9); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; z-index: 100; display: flex; align-items: center; gap: 6px;">🥞 Letter Griddle Games</a>
+<a href="index.html" class="nav-link" style="position: fixed; top: 10px; left: 200px; color: #FFFDF5; background: rgba(139,90,43,0.9); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; z-index: 100;">❓ How to Play</a>
 <div class="container">
     <header class="header">
       <svg class="logo"><use href="#logo-griddle-falls"/></svg>
       <h1 class="title">Griddle Falls</h1>
       <p class="subtitle">Sunday Trivia Night</p>
     </header>
-
     <div class="status-bar">
       <div class="timer-section">
         <div class="cafe-time">☕ It's always trivia time somewhere.</div>
@@ -1505,7 +1443,6 @@
         </div>
       </div>
     </div>
-
     <div class="hint-card">
       <div class="hint-header">
         <svg class="laurel-avatar"><use href="#avatar-laurel"/></svg>
@@ -1517,7 +1454,6 @@
       <p class="hint-text" id="hintText">"Loading today's trivia..."</p>
       <span class="category-badge" id="categoryBadge">Category</span>
     </div>
-
     <div class="game-area">
       <div class="falling-zone" id="fallingZone">
         <div class="letters-grid" id="lettersGrid">
@@ -1545,9 +1481,7 @@
         </div>
       </div>
     </div>
-
     <button class="check-btn" id="checkBtn" onclick="checkAnswer()" disabled>Check Answer</button>
-
     <footer class="footer">
       <div class="footer-links">
         <a href="privacy.html">Privacy</a>
@@ -1569,7 +1503,6 @@
       </div>
     </footer>
   </div>
-
   <!-- NPC reaction bubble -->
   <div class="npc-reaction" id="npcReaction">
     <svg class="npc-avatar" id="npcAvatar"><use href="#avatar-sarah"/></svg>
@@ -1578,460 +1511,11 @@
       <div class="message" id="npcMessage">"You're so close!"</div>
     </div>
   </div>
-
-  <script>
-    function showInstructions() { document.getElementById('startOverlay').style.display = 'flex'; }
-    // Puzzle data - 31 CATEGORIES
-    const puzzles = [
-      {
-        category: "Candy",
-        words: [
-          { word: "MINT", hint: "A refreshing flavored candy often used after dinner" },
-          { word: "TAFFY", hint: "A chewy candy often sold at boardwalks and beaches" },
-          { word: "GUMMY", hint: "Soft, chewy candy often shaped like bears or worms" },
-          { word: "LOLLIPOP", hint: "Hard candy on a stick, a classic carnival treat" },
-          { word: "CHOCOLATE", hint: "Sweet treat made from cacao beans, enjoyed worldwide" }
-        ]
-      },
-      {
-        category: "Autumn",
-        words: [
-          { word: "LEAF", hint: "Tree foliage that changes color and falls in this season" },
-          { word: "APPLE", hint: "Round fruit often picked at orchards in fall" },
-          { word: "PUMPKIN", hint: "Large orange gourd carved for Halloween" },
-          { word: "HARVEST", hint: "The gathering of crops at the end of the growing season" },
-          { word: "SWEATER", hint: "Cozy knitted clothing worn when temperatures drop" }
-        ]
-      },
-      {
-        category: "Hiking",
-        words: [
-          { word: "BOOT", hint: "Sturdy footwear essential for trail walking" },
-          { word: "TRAIL", hint: "A marked path through nature for walking" },
-          { word: "SUMMIT", hint: "The highest point of a mountain" },
-          { word: "COMPASS", hint: "Navigation tool that points north" },
-          { word: "BACKPACK", hint: "Bag worn on shoulders to carry supplies" }
-        ]
-      },
-      {
-        category: "Dessert",
-        words: [
-          { word: "TART", hint: "A pastry with fruit filling and no top crust" },
-          { word: "FUDGE", hint: "Rich, creamy chocolate confection" },
-          { word: "SUNDAE", hint: "Ice cream topped with sauce, whipped cream, and a cherry" },
-          { word: "BROWNIE", hint: "Dense, chocolate baked square dessert" },
-          { word: "CHEESECAKE", hint: "Creamy dessert with a graham cracker crust" }
-        ]
-      },
-      {
-        category: "What's in the bag?",
-        words: [
-          { word: "KEYS", hint: "Metal items that unlock doors and start cars" },
-          { word: "PHONE", hint: "Mobile device for calls, texts, and apps" },
-          { word: "WALLET", hint: "Folding case for money and cards" },
-          { word: "LIPSTICK", hint: "Cosmetic applied to add color to lips" },
-          { word: "SUNGLASSES", hint: "Eyewear that protects from bright light" }
-        ]
-      },
-      {
-        category: "Fruits",
-        words: [
-          { word: "PEAR", hint: "A sweet fruit with a narrow top and rounded bottom" },
-          { word: "MANGO", hint: "Tropical stone fruit with orange flesh" },
-          { word: "ORANGE", hint: "Citrus fruit known for its vitamin C content" },
-          { word: "APRICOT", hint: "Small orange stone fruit related to peaches" },
-          { word: "PINEAPPLE", hint: "Tropical fruit with spiky skin and sweet yellow interior" }
-        ]
-      },
-      {
-        category: "Animals",
-        words: [
-          { word: "BEAR", hint: "Large mammal that hibernates in winter" },
-          { word: "TIGER", hint: "Large striped cat native to Asia" },
-          { word: "GIRAFFE", hint: "Tallest land animal with a long neck" },
-          { word: "ELEPHANT", hint: "Largest land mammal with a trunk" },
-          { word: "ALLIGATOR", hint: "Large reptile found in swamps and rivers" }
-        ]
-      },
-      {
-        category: "Occupations",
-        words: [
-          { word: "CHEF", hint: "Professional who prepares food in a restaurant" },
-          { word: "NURSE", hint: "Healthcare worker who cares for patients" },
-          { word: "TEACHER", hint: "Educator who instructs students in a classroom" },
-          { word: "ENGINEER", hint: "Professional who designs and builds systems" },
-          { word: "ARCHITECT", hint: "Designer of buildings and structures" }
-        ]
-      },
-      {
-        category: "Sports",
-        words: [
-          { word: "GOLF", hint: "Sport played with clubs and a small white ball" },
-          { word: "RUGBY", hint: "Contact team sport played with an oval ball" },
-          { word: "TENNIS", hint: "Racquet sport played on a court with a net" },
-          { word: "SWIMMING", hint: "Water sport involving moving through water" },
-          { word: "BASKETBALL", hint: "Team sport where players shoot a ball through a hoop" }
-        ]
-      },
-      {
-        category: "U.S. States",
-        words: [
-          { word: "UTAH", hint: "Western state known for its national parks" },
-          { word: "TEXAS", hint: "The Lone Star State, second largest by area" },
-          { word: "OREGON", hint: "Pacific Northwest state known for its forests" },
-          { word: "GEORGIA", hint: "Southern state known as the Peach State" },
-          { word: "CALIFORNIA", hint: "Most populous state on the West Coast" }
-        ]
-      },
-      {
-        category: "School Days",
-        words: [
-          { word: "DESK", hint: "Furniture where students sit and work" },
-          { word: "LUNCH", hint: "Midday meal eaten in the cafeteria" },
-          { word: "RECESS", hint: "Break time for outdoor play" },
-          { word: "SCIENCE", hint: "Subject exploring how the world works" },
-          { word: "TEXTBOOK", hint: "Educational book used for studying" }
-        ]
-      },
-      {
-        category: "Trees and Shrubs",
-        words: [
-          { word: "PALM", hint: "Tropical tree with large fan-shaped or feathery leaves" },
-          { word: "MAPLE", hint: "Deciduous tree known for its colorful fall foliage and sweet sap" },
-          { word: "BANYAN", hint: "Fig tree with aerial roots that grow down to form additional trunks" },
-          { word: "JASMINE", hint: "Fragrant flowering shrub often used in perfumes and teas" },
-          { word: "CINNAMON", hint: "Aromatic evergreen tree whose inner bark is used as a spice" }
-        ]
-      },
-      {
-        category: "Movie Titles",
-        words: [
-          { word: "JAWS", hint: "1975 Spielberg thriller about a great white shark terrorizing a beach town" },
-          { word: "ALIEN", hint: "1979 sci-fi horror classic with Sigourney Weaver fighting extraterrestrials" },
-          { word: "FROZEN", hint: "Disney animated film featuring Elsa, Anna, and the song 'Let It Go'" },
-          { word: "TITANIC", hint: "1997 epic romance about the doomed ocean liner starring DiCaprio and Winslet" },
-          { word: "INCEPTION", hint: "Christopher Nolan mind-bending thriller about dreams within dreams" }
-        ]
-      },
-      {
-        category: "Colors",
-        words: [
-          { word: "BLUE", hint: "The color of a clear sky on a sunny day" },
-          { word: "BEIGE", hint: "A neutral sandy or tan shade often used in interior design" },
-          { word: "INDIGO", hint: "A deep purple-blue color between blue and violet in the rainbow" },
-          { word: "EMERALD", hint: "A rich green color named after a precious gemstone" },
-          { word: "BURGUNDY", hint: "A deep reddish-purple wine color named after a French region" }
-        ]
-      },
-      {
-        category: "International Foods",
-        words: [
-          { word: "TACO", hint: "A Mexican dish with a folded tortilla and various fillings" },
-          { word: "SUSHI", hint: "Japanese dish of vinegared rice with raw fish or vegetables" },
-          { word: "PAELLA", hint: "A Spanish rice dish from Valencia with seafood and saffron" },
-          { word: "RAVIOLI", hint: "Italian pasta pillows filled with cheese, meat, or vegetables" },
-          { word: "CROISSANT", hint: "A flaky, buttery French pastry shaped like a crescent" }
-        ]
-      },
-      {
-        category: "Games",
-        words: [
-          { word: "RISK", hint: "Strategic board game of world domination with armies and dice" },
-          { word: "CHESS", hint: "Ancient strategy game with kings, queens, and checkmate" },
-          { word: "DOMINO", hint: "Tile game with numbered dots played by matching ends" },
-          { word: "YAHTZEE", hint: "Dice game where players try to score combinations and get five of a kind" },
-          { word: "SCRABBLE", hint: "Word-building board game where letter tiles score points on a grid" }
-        ]
-      },
-      {
-        category: "Cities Around the World",
-        words: [
-          { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum" },
-          { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum" },
-          { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace" },
-          { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods" },
-          { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudi's architecture and La Rambla" }
-        ]
-      },
-      {
-        category: "Cool Weather Clothing",
-        words: [
-          { word: "COAT", hint: "A long outer garment worn over other clothes for warmth" },
-          { word: "SCARF", hint: "A piece of fabric worn around the neck for warmth or style" },
-          { word: "JACKET", hint: "A shorter outer garment that covers the upper body and arms" },
-          { word: "SWEATER", hint: "A knitted garment worn on the upper body, often made of wool" },
-          { word: "CASHMERE", hint: "A luxuriously soft wool fabric from the Kashmir goat" }
-        ]
-      },
-      {
-        category: "Friendship",
-        words: [
-          { word: "ALLY", hint: "A trusted friend who supports and stands by you" },
-          { word: "LOYAL", hint: "Faithful and devoted through thick and thin" },
-          { word: "TRUSTY", hint: "Reliable and dependable, someone you can count on" },
-          { word: "SUPPORT", hint: "To give help, encouragement, and assistance to someone" },
-          { word: "KINDNESS", hint: "The quality of being friendly, generous, and considerate" }
-        ]
-      },
-      {
-        category: "Art Projects",
-        words: [
-          { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface" },
-          { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork" },
-          { word: "CANVAS", hint: "A piece of cloth stretched over a frame for painting" },
-          { word: "DRAWING", hint: "The art of creating images with pencils, pens, or charcoal" },
-          { word: "COLLAGE", hint: "Artwork made by gluing paper, photos, and other materials together" }
-        ]
-      },
-      {
-        category: "Musicals",
-        words: [
-          { word: "RENT", hint: "Jonathan Larson's rock musical about struggling artists in New York City" },
-          { word: "EVITA", hint: "Andrew Lloyd Webber musical about Argentina's first lady Eva Perón" },
-          { word: "WICKED", hint: "Musical telling the untold story of the witches of Oz" },
-          { word: "COMPANY", hint: "Stephen Sondheim musical about a bachelor and his married friends" },
-          { word: "HAMILTON", hint: "Lin-Manuel Miranda's hip-hop musical about a founding father" }
-        ]
-      },
-      {
-        category: "Football",
-        words: [
-          { word: "DOWN", hint: "A play in football; teams get four tries to advance 10 yards" },
-          { word: "BLITZ", hint: "A defensive play where extra players rush the quarterback" },
-          { word: "CENTER", hint: "The offensive lineman who snaps the ball to the quarterback" },
-          { word: "DEFENSE", hint: "The team trying to stop the other team from scoring" },
-          { word: "GRIDIRON", hint: "Another name for a football field, named for its yard lines" }
-        ]
-      },
-      {
-        category: "Game Night",
-        words: [
-          { word: "UNO", hint: "Popular card game where players match colors and numbers" },
-          { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons" },
-          { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies" },
-          { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents" },
-          { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent" }
-        ]
-      },
-      {
-        category: "It's a Mystery!",
-        words: [
-          { word: "CLUE", hint: "A piece of evidence that helps solve a puzzle or crime" },
-          { word: "CRIME", hint: "An illegal act that breaks the law" },
-          { word: "ARREST", hint: "When police take someone into custody for breaking the law" },
-          { word: "SUSPECT", hint: "A person believed to have committed a crime" },
-          { word: "SOLUTION", hint: "The answer or resolution to a mystery or problem" }
-        ]
-      },
-      {
-        category: "Favorite Bookshop",
-        words: [
-          { word: "CAFE", hint: "A cozy spot in a bookstore serving coffee and treats" },
-          { word: "MERCH", hint: "Merchandise like bookmarks, tote bags, and literary-themed gifts" },
-          { word: "AUTHOR", hint: "A writer who may visit to discuss and promote their books" },
-          { word: "SIGNING", hint: "An event where a writer autographs copies of their book" },
-          { word: "AMBIANCE", hint: "The welcoming atmosphere and character of a beloved bookshop" }
-        ]
-      },
-      {
-        category: "Music Storage",
-        words: [
-          { word: "DISK", hint: "A circular storage medium for music, like CDs or vinyl" },
-          { word: "TRACK", hint: "An individual song on an album or recording" },
-          { word: "RECORD", hint: "A vinyl disc that plays music when spun on a turntable" },
-          { word: "NAPSTER", hint: "Revolutionary file-sharing service that changed music distribution" },
-          { word: "CASSETTE", hint: "Magnetic tape format popular in the 1980s and 90s" }
-        ]
-      },
-      {
-        category: "Jim Henson's Muppets",
-        words: [
-          { word: "BIRD", hint: "Big yellow character who lives on Sesame Street" },
-          { word: "PIGGY", hint: "Miss ___, glamorous diva and Kermit's love interest" },
-          { word: "KERMIT", hint: "The famous green frog who sings 'Rainbow Connection'" },
-          { word: "SNUFFLE", hint: "___ upagus, the woolly mammoth-like creature on Sesame Street" },
-          { word: "PUPPETRY", hint: "The art of bringing characters to life with hand movements" }
-        ]
-      },
-      {
-        category: "Pizza, pizza!",
-        words: [
-          { word: "MEAT", hint: "A savory protein topping category for pizza" },
-          { word: "SAUCE", hint: "Tomato-based spread that goes on the dough" },
-          { word: "TOMATO", hint: "Red fruit used as the base for pizza sauce" },
-          { word: "SAUSAGE", hint: "Spiced ground meat topping, often Italian-style" },
-          { word: "MUSHROOM", hint: "Earthy fungus that's a popular vegetable topping" }
-        ]
-      },
-      {
-        category: "Video Games",
-        words: [
-          { word: "PONG", hint: "Classic table tennis video game from the 1970s" },
-          { word: "ATARI", hint: "Iconic gaming company that pioneered home video game consoles" },
-          { word: "ARCADE", hint: "Entertainment venue filled with coin-operated game machines" },
-          { word: "CONSOLE", hint: "Home gaming device that connects to a TV" },
-          { word: "JOYSTICK", hint: "Hand-held controller used to navigate games" }
-        ]
-      },
-      {
-        category: "At the Lake",
-        words: [
-          { word: "FISH", hint: "To cast a line and try to catch dinner" },
-          { word: "CANOE", hint: "A narrow boat you paddle through the water" },
-          { word: "SNOOZE", hint: "To take a lazy nap in the afternoon sun" },
-          { word: "BONFIRE", hint: "A large outdoor fire for gathering and roasting marshmallows" },
-          { word: "HAMMOCK", hint: "A hanging bed made of fabric or rope, perfect for relaxing" }
-        ]
-      },
-      {
-        category: "Vacation",
-        words: [
-          { word: "REST", hint: "To take it easy and recover your energy" },
-          { word: "BREAK", hint: "Time away from work or school" },
-          { word: "LEAVE", hint: "To depart or time off granted from your job" },
-          { word: "HOLIDAY", hint: "A special day or period of celebration and time off" },
-          { word: "RELAXING", hint: "The act of unwinding and letting stress melt away" }
-        ]
-      }
-    ];
-
-    // NPC reactions with avatar references
-    const npcs = {
-      correct: [
-        { name: "Sarah", avatar: "avatar-sarah", message: "I knew you'd get it!" },
-        { name: "Taylor B.", avatar: "avatar-taylor", message: "I knew I heard that somewhere!" },
-        { name: "Mr. Lindsay", avatar: "avatar-mr-lindsay", message: "Brilliant! Simply brilliant!" },
-        { name: "Josie", avatar: "avatar-josie", message: "Mom, they got it!" }
-      ],
-      close: [
-        { name: "Sarah", avatar: "avatar-sarah", message: "You're so close, I can feel it!" },
-        { name: "Mrs. Lindsay", avatar: "avatar-mrs-lindsay", message: "Almost there, dear!" },
-        { name: "Josephine", avatar: "avatar-josephine", message: "Hmm, not quite... but close!" },
-        { name: "Jennie", avatar: "avatar-jennie", message: "Isaac thinks you're onto something..." }
-      ],
-      wrong: [
-        { name: "Mr. Lindsay", avatar: "avatar-mr-lindsay", message: "Ooh, that's not it, but don't give up!" },
-        { name: "Taylor B.", avatar: "avatar-taylor", message: "Hmm, that doesn't sound right..." },
-        { name: "Josie", avatar: "avatar-josie", message: "Try again! You've got this!" }
-      ],
-      victory: [
-        { name: "Laurel", avatar: "avatar-laurel", message: "Another perfect trivia night! Coffee's on the house." },
-        { name: "The whole cafe", avatar: "avatar-cafe", message: "*applause and coffee cups clinking*" },
-        { name: "Sarah", avatar: "avatar-sarah", message: "That was impressive! Same time next Sunday?" }
-      ]
-    };
-
-    // Game state
-    let currentPuzzle = null;
-    let currentWordIndex = 0;
-    let currentWord = null;
-    let timerInterval = null;
-    let startTime = null;
-    let gameStarted = false;
-    let answerLetters = [];
-    let discardedLetters = [];
-    let fallingLetters = [];
-    let voiceEnabled = true;
-    let gameResults = []; // Track results for sharing
-
-    // Toggle voice
-    function toggleVoice() {
-      voiceEnabled = !voiceEnabled;
-      document.getElementById('voiceToggle').classList.toggle('active', voiceEnabled);
-    }
-
-    // Speak hint using Web Speech API - American English voice
-    function speakHint() {
-      if (!('speechSynthesis' in window)) {
-        console.log('Speech synthesis not supported');
-        return;
-      }
-      
-      // Cancel any ongoing speech
-      speechSynthesis.cancel();
-      
-      const hint = currentWord ? currentWord.hint : '';
-      if (!hint) return;
-      
-      const utterance = new SpeechSynthesisUtterance(hint);
-      utterance.rate = 0.9;
-      
-      // Prioritize American English female voices
-      const voices = speechSynthesis.getVoices();
-      
-      // Priority order for American female voices
-     const preferredVoices = [
-  'Ava', // macOS - very natural
-  'Allison', // macOS - friendly
-  'Zoe', // macOS - warm
-  'Samantha (Enhanced)',
-  'Samantha',
-  'Karen',
-  'Google US English',
-  'en-US',
-  'en_US'
-];
-      
-      let selectedVoice = null;
-      
-      // First try to find a preferred American voice
-      for (const preferred of preferredVoices) {
-        selectedVoice = voices.find(v => 
-          v.name.includes(preferred) || 
-          v.lang === preferred ||
-          (v.lang && v.lang.startsWith('en-US'))
-        );
-        if (selectedVoice) break;
-      }
-      
-      // If no American voice found, try any English voice
-      if (!selectedVoice) {
-        selectedVoice = voices.find(v => v.lang && v.lang.startsWith('en'));
-      }
-      
-      if (selectedVoice) {
-        utterance.voice = selectedVoice;
-      }
-      
-      // Force American English
-      utterance.lang = 'en-US';
-      
-      const btn = document.getElementById('speakBtn');
-      btn.classList.add('speaking');
-      
-      utterance.onend = () => {
-        btn.classList.remove('speaking');
-      };
-      
-      speechSynthesis.speak(utterance);
-    }
-
-    // Generate decoy letters
-    function generateDecoys(word, count) {
-      const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      const wordLetters = new Set(word.split(''));
-      const decoys = [];
-      
-      while (decoys.length < count) {
-        const letter = alphabet[Math.floor(Math.random() * alphabet.length)];
-        if (decoys.filter(d => d === letter).length < 2) {
-          decoys.push(letter);
-        }
-      }
-      
-      return decoys;
-    }
-
-    // Shuffle array
-    function shuffle(array) {
-      const arr = [...array];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+ Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
       return arr;
     }
-
     // Shuffle visible letters in the grid
     function shuffleLetters() {
       const grid = document.getElementById('lettersGrid');
@@ -2051,7 +1535,6 @@
         }, 150);
       });
     }
-
     // Create rain effect
     function createRain() {
       const rain = document.getElementById('rain');
@@ -2064,7 +1547,6 @@
         rain.appendChild(drop);
       }
     }
-
     // Format time
     function formatTime(ms) {
       const seconds = Math.floor(ms / 1000);
@@ -2072,7 +1554,6 @@
       const secs = seconds % 60;
       return `${minutes}:${secs.toString().padStart(2, '0')}`;
     }
-
     // Update timer
     function updateTimer() {
       if (startTime) {
@@ -2080,7 +1561,6 @@
         document.getElementById('timer').textContent = formatTime(elapsed);
       }
     }
-
     // Show NPC reaction
     function showNpcReaction(type) {
       const reactions = npcs[type];
@@ -2097,7 +1577,6 @@
         el.classList.remove('visible');
       }, 3000);
     }
-
     // Update progress dots
     function updateProgressDots() {
       const dots = document.querySelectorAll('.dot');
@@ -2110,7 +1589,6 @@
         }
       });
     }
-
     // Create answer slots
     function createAnswerSlots(length) {
       const container = document.getElementById('answerSlots');
@@ -2125,7 +1603,6 @@
         container.appendChild(slot);
       }
     }
-
     // Create letters grid
     function createLettersGrid(word) {
       const grid = document.getElementById('lettersGrid');
@@ -2155,7 +1632,6 @@
       
       updateCheckButton();
     }
-
     // Place letter in answer
     function placeLetter(id) {
       const letterData = fallingLetters[id];
@@ -2177,7 +1653,6 @@
       
       updateCheckButton();
     }
-
     // Place letter by character
     function placeLetterByChar(char) {
       const upperChar = char.toUpperCase();
@@ -2186,7 +1661,6 @@
         placeLetter(letterData.id);
       }
     }
-
     // Remove letter from slot
     function removeFromSlot(index) {
       const letterData = answerLetters[index];
@@ -2204,7 +1678,6 @@
       
       updateCheckButton();
     }
-
     // Remove last placed letter
     function removeLastLetter() {
       for (let i = answerLetters.length - 1; i >= 0; i--) {
@@ -2214,14 +1687,12 @@
         }
       }
     }
-
     // Update check button state
     function updateCheckButton() {
       const btn = document.getElementById('checkBtn');
       const allFilled = answerLetters.every(l => l !== null);
       btn.disabled = !allFilled;
     }
-
     // Check answer
     function checkAnswer() {
       const guess = answerLetters.map(l => l.letter).join('');
@@ -2273,7 +1744,6 @@
         showNpcReaction(hasClose ? 'close' : 'wrong');
       }
     }
-
     // Add letter to discarded
     function addToDiscarded(letterData) {
       if (discardedLetters.includes(letterData.id)) return;
@@ -2292,7 +1762,6 @@
         gridEl.style.display = 'none';
       }
     }
-
     // Retrieve from discarded
     function retrieveFromDiscarded(letterData, el) {
       const index = discardedLetters.indexOf(letterData.id);
@@ -2309,7 +1778,6 @@
         gridEl.classList.remove('grabbed');
       }
     }
-
     // Load current word
     function loadWord() {
       currentWord = currentPuzzle.words[currentWordIndex];
@@ -2326,7 +1794,6 @@
         setTimeout(speakHint, 500);
       }
     }
-
     // Start game
     function startGame() {
       document.getElementById('startOverlay').classList.add('hidden');
@@ -2345,7 +1812,6 @@
       
       loadWord();
     }
-
     // End game
     function endGame() {
       clearInterval(timerInterval);
@@ -2361,7 +1827,6 @@
       
       document.getElementById('victoryOverlay').classList.add('visible');
     }
-
     // Restart game
     function restartGame() {
       document.getElementById('victoryOverlay').classList.remove('visible');
@@ -2375,25 +1840,20 @@
       
       loadWord();
     }
-
     // Share results
     function shareResults() {
       const elapsed = Date.now() - startTime;
       const timeStr = formatTime(elapsed);
       
       const shareText = `☕ Griddle Falls - Trivia Night
-
 🏆 Completed in ${document.getElementById('finalTime').textContent}!
 ${gameResults.join('')}
-
 Play at griddlefalls.com
-
 More games from the Letter Griddle Cafe:
 🥞 lettergriddle.com
 🌙 littlelettergriddle.com
 🍽️ lettergriddlebuffet.com
 🌀 kerflufflegrid.com`;
-
       // Try to use native share if available
       if (navigator.share) {
         navigator.share({
@@ -2407,7 +1867,6 @@ More games from the Letter Griddle Cafe:
         copyToClipboard(shareText);
       }
     }
-
     // Copy to clipboard
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(() => {
@@ -2420,7 +1879,6 @@ More games from the Letter Griddle Cafe:
         console.error('Failed to copy:', err);
       });
     }
-
     // Keyboard handler
     function handleKeydown(e) {
       if (!gameStarted) return;
@@ -2442,7 +1900,6 @@ More games from the Letter Griddle Cafe:
         placeLetterByChar(key);
       }
     }
-
     // Initialize
     createRain();
     document.addEventListener('keydown', handleKeydown);
@@ -2453,7 +1910,6 @@ More games from the Letter Griddle Cafe:
         speechSynthesis.getVoices();
       };
     }
-
     // ============ JUKEBOX ============
     const tracks = [
       { name: 'Sunday Vibes', file: 'audio/Sunday Vibes.mp3' },
@@ -2461,11 +1917,9 @@ More games from the Letter Griddle Cafe:
       { name: 'Sunday Jazz', file: 'audio/Sunday Jazz.mp3' },
       { name: 'Sunday Groove', file: 'audio/Sunday Groove.mp3' }
     ];
-
     let audioPlayer = null;
     let currentTrackIndex = 0;
     let isPlaying = false;
-
     // Initialize jukebox
     function initJukebox() {
       audioPlayer = new Audio();
@@ -2490,7 +1944,6 @@ More games from the Letter Griddle Cafe:
         document.getElementById('volumeSlider').value = parseFloat(savedVolume) * 100;
       }
     }
-
     // Render playlist
     function renderPlaylist() {
       const container = document.getElementById('playlist');
@@ -2508,7 +1961,6 @@ More games from the Letter Griddle Cafe:
         container.appendChild(el);
       });
     }
-
     // Select track
     function selectTrack(index) {
       currentTrackIndex = index;
@@ -2521,7 +1973,6 @@ More games from the Letter Griddle Cafe:
       
       renderPlaylist();
     }
-
     // Toggle play/pause
     function togglePlay() {
       if (!audioPlayer.src || audioPlayer.src === '') {
@@ -2543,35 +1994,29 @@ More games from the Letter Griddle Cafe:
       
       renderPlaylist();
     }
-
     // Next track
     function nextTrack() {
       currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
       selectTrack(currentTrackIndex);
     }
-
     // Previous track
     function prevTrack() {
       currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
       selectTrack(currentTrackIndex);
     }
-
     // Set volume
     function setVolume(value) {
       const vol = value / 100;
       audioPlayer.volume = vol;
       localStorage.setItem('griddleFallsVolume', vol.toString());
     }
-
     // Toggle jukebox modal
     function toggleJukebox() {
       const modal = document.getElementById('jukeboxModal');
       modal.classList.toggle('visible');
     }
-
     // Initialize jukebox on load
     initJukebox();
-
     // Set dynamic copyright year
     document.getElementById('copyrightYear').textContent = new Date().getFullYear();
   </script>
