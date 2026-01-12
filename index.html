@@ -2065,7 +2065,33 @@
         ]
       }
     ];
-
+    
+ // NPC reactions with avatar references
+    const npcs = {
+      correct: [
+        { name: "Sarah", avatar: "avatar-sarah", message: "I knew you'd get it!" },
+        { name: "Taylor B.", avatar: "avatar-taylor", message: "I knew I heard that somewhere!" },
+        { name: "Mr. Lindsay", avatar: "avatar-mr-lindsay", message: "Brilliant! Simply brilliant!" },
+        { name: "Josie", avatar: "avatar-josie", message: "Mom, they got it!" }
+      ],
+      close: [
+        { name: "Sarah", avatar: "avatar-sarah", message: "You're so close, I can feel it!" },
+        { name: "Mrs. Lindsay", avatar: "avatar-mrs-lindsay", message: "Almost there, dear!" },
+        { name: "Josephine", avatar: "avatar-josephine", message: "Hmm, not quite... but close!" },
+        { name: "Jennie", avatar: "avatar-jennie", message: "Isaac thinks you're onto something..." }
+      ],
+      wrong: [
+        { name: "Mr. Lindsay", avatar: "avatar-mr-lindsay", message: "Ooh, that's not it, but don't give up!" },
+        { name: "Taylor B.", avatar: "avatar-taylor", message: "Hmm, that doesn't sound right..." },
+        { name: "Josie", avatar: "avatar-josie", message: "Try again! You've got this!" }
+      ],
+      victory: [
+        { name: "Laurel", avatar: "avatar-laurel", message: "Another perfect trivia night! Coffee's on the house." },
+        { name: "The whole cafe", avatar: "avatar-cafe", message: "*applause and coffee cups clinking*" },
+        { name: "Sarah", avatar: "avatar-sarah", message: "That was impressive! Same time next Sunday?" }
+      ]
+    };
+    
     // Game state
     let currentPuzzle = null;
     let currentWordIndex = 0;
