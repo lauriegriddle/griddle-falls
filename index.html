@@ -1437,7 +1437,7 @@
         
         <div class="voice-toggle">
           <label>🔊 Laurel reads hints aloud</label>
-          <div class="toggle-switch active" id="voiceToggle" onclick="toggleVoice()"></div>
+          <div class="toggle-switch" id="voiceToggle" onclick="toggleVoice()"></div>
         </div>
       </div>
     </div>
@@ -2102,7 +2102,7 @@
     let answerLetters = [];
     let discardedLetters = [];
     let fallingLetters = [];
-    let voiceEnabled = true;
+    let voiceEnabled = false;
     let gameResults = []; // Track results for sharing
 
     // Toggle voice
